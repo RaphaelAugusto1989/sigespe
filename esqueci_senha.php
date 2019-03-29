@@ -27,7 +27,7 @@
 </head>
 <body>
 <?php
-require 'processos/config.php';
+/*require 'processos/config.php';
 require 'processos/connection.php';
 require 'processos/database.php';
 
@@ -150,7 +150,7 @@ img {
 	} exit;
 
 }
-
+*/
 ?>
 <h4>Recuperar Senha</h4>
 <p>Você receberá em seu e-mail instruções para recuperar sua senha de acesso.</p>

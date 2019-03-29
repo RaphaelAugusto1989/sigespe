@@ -1,160 +1,62 @@
-<?php
-	session_start();
-?>
-<!doctype html>
-<html>
-	<heade>
-		<meta charset="utf-8">
-		<title>.::SIGESPE::.</title>
-			<link href="css/style.css" rel="stylesheet" type="text/css">
-	</heade>
-	<body id="index">
-    <div id="artspeck">
-        Desenvolvidor por: 
-            <a href="http://www.artspeck.com.br" target="_blank">
-              <img src="imagens/artspeck.png" width="90" height="22" border="0" style="margin-left: 5px;" />
-            </a>
-</div>
-	<?php
-		require 'processos/config.php';
-		require 'processos/connection.php';
-		require 'processos/database.php';
-		
-//VERIFICA BROWSER
-function get_browser_name($user_agent)
-{
-    if (strpos($user_agent, 'Opera') || strpos($user_agent, 'OPR/')) return 'Opera';
-    if (strpos($user_agent, 'Edge')) return 'Edge';
-    if (strpos($user_agent, 'Chrome')) return 'Chrome';
-    if (strpos($user_agent, 'Safari')) return 'Safari';
-    if (strpos($user_agent, 'Firefox')) return 'Firefox';
-    if (strpos($user_agent, 'MSIE') || strpos($user_agent, 'Trident/7')) return 'Internet Explorer';
-    
-    return 'Other';
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>SIGESPE</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-if (get_browser_name($_SERVER['HTTP_USER_AGENT']) == 'Firefox') {
-	echo "<script>	alert ('Infelizmente o SIGEPE ainda não tem suporte à este navegador, por favor utilize um navegador recomendado!')	</script>";
-	echo "<script> location.href = ('navegadores_recomendado.php') </script>";
-	exit ();
-}
-if (get_browser_name($_SERVER['HTTP_USER_AGENT']) == 'Safari') {
-	echo "<script>	alert ('Infelizmente o SIGEPE ainda não tem suporte à este navegador, por favor utilize um navegador recomendado!')	</script>";
-	echo "<script> location.href = ('navegadores_recomendado.php') </script>";
-	exit ();
-}
-
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		
-	//RECEBE DADOS DO FORMULARIO
-	$login = test_input($_POST["login"]);
-	$senha = test_input($_POST["senha"]);
-
-	if ($login == "") {
-			
-			echo "<script>	alert ('você não digitou o Usuário!')	</script>";
-			echo "<script> location.href = ('index.php') </script>";
-			exit ();
-		}
-		
-		if ($senha == "") {
-			
-			echo "<script>	alert ('você não digitou a senha!')	</script>";
-			echo "<script> location.href = ('index.php') </script>";
-			exit ();
-		}
-
-	//LÊ DADOS DO BANCO
-	$user = DBRead ('usuario', "WHERE login_usuario = '$login' AND senha_usuario = '$senha'", 'id_usuario, nome_usuario, tipo_usuario, login_usuario');
-	
-	// Quantidade de registros pra paginação
-	
-
-foreach ($user as $us) {
-	
-   	$nome_user = $us["nome_usuario"];
-  	$id_usuario = $us["id_usuario"];
-		
-	}
-
-	if ($user == true) {
-
-		$_SESSION ["time"] = time() + (60 * 1); //1 minuto
-		$_SESSION ["login"] = $login;
-		$_SESSION ["nome"] = $us["nome_usuario"];
-		$_SESSION ["id_user"] = $us["id_usuario"];
-		$_SESSION ["tipo"] = $us["tipo_usuario"];
-
-		echo "<script>location.href=('sigepe.php')</script>";
-	}
-	else { 
-		echo "<center><b style='color: #B50003; position: absolute; top: 20%; left: 43%;'>Falha na Autenticação, <br />Login ou Senha Incorretos!</b></center>";	
-	}
-}
-
-	function test_input($data) {
-   		$data = trim($data);
-   		$data = stripslashes($data);
-   		$data = htmlspecialchars($data);
-   		return $data;
-	}
-
-		
-	?>
-		<div id="login">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
-		<table width="70%" cellpadding="0" cellspacing="0" id="table_login">
-			<tbody>
-				<tr>
-					<td align="center" valign="middle">
-						<div class="titulo_login">
-							<img src="imagens/login.png" width="90%">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="table_linha_login">
-							<img src="imagens/cadeado.png" class="img_login">	
-							<input type="text" name="login" class="login_text" placeholder="Login">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div id="table_linha_login">
-						<img src="imagens/chave.png" class="img_login">
-						<input type="password" name="senha" class="login_text" placeholder="Senha">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="submit" value="Entrar" class="botton_login"></input>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<nav class="senha">
-							<ul>
-								<li><a href="esqueci_senha.php" target="minha_senha"> Esqueceu sua senha?</a></li>
-							</ul>
-						</nav>
-						<iframe src="branco.php" name="minha_senha" id="minha_senha"></iframe>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+</head>
+<body class="bg-secondary">
+<div class="container">
+	<div class="row mt-5 pt-4 justify-content-md-center">
+		<div class="col col-md-4 aling-self-center">
+			<p class="h3 text-center p-4">LOGIN SIGESPE</p>
+			<form action="" method="post">
+				<div class="input-group mb-2">
+					<div class="input-group-prepend">
+						<div class="input-group-text"><i class="fas fa-user"></i></div>
+					</div>
+					<input type="text" class="form-control form-control-lg" name="login" placeholder="Login" required>
+				</div>
+				<div class="input-group mb-2">
+			        <div class="input-group-prepend">
+			          <div class="input-group-text"><i class="fas fa-key"></i></div>
+			        </div>
+	      			<input type="password" name="senha" id="password" class="form-control form-control-lg" placeholder="Senha" required>
+	      			<div class="input-group-append border-0">
+	      				<a href="#" class="input-group-text bg-white border-1 btn btn-link" id="showPassword" title="Mostrar Senha" style="text-decoration: none;"><i class="fas fa-eye"></i></a>
+	      			</div>
+	        	</div>
+	        	<div class="input-group mb-2">
+					<button type="submit" class="btn btn-block btn-primary btn-lg bg-dark border-0">ENTRAR</button>
+				</div>
+			</form>
+				<a href="esqueci_senha.php" class="text-body" target="minha_senha"> Esqueceu sua senha?</a>
+			<div class="row">
+				<iframe src="branco.php" name="minha_senha" class="bg-transparent border-0 col-md-12" height="200" id="minha_senha"></iframe>
+			</div>
 		</div>
-        <div id="rodape_index">
-         <b> ©2016 - <?php echo date('Y'); ?> - Sistema de Gerenciamento de Pedidos / SIGEPE. Todos os direitos reservados.</b> <span style="margin-left: 30px;">Versão 1.8</span>
-        <div id="navegadores">
-        Navegadores Recomendado para uso: 
-        	<img src="imagens/icon_opera.png" class="browsers" title="Opera">
-        	<img src="imagens/icon_chrome.png" class="browsers" title="Google Chrome">
-        	<!--<img src="imagens/icon_firefox.png" class="browsers" title="Mozila Firefox"> -->
-        	<img src="imagens/icon_ie.png" class="browsers" title="Internet Explorer 11">
-        	<img src="imagens/icon_edge.png" class="browsers" title="Microsoft Edge">
-        </div>
-	</body>
+	</div>
+</div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	//Exibir e esconder senha
+	$(document).ready(function(){
+		$('#showPassword').on('click', function(){
+		    var passwordField = $('#password');
+		    var passwordFieldType = passwordField.attr('type');
+		    if(passwordFieldType == 'password') {
+		        passwordField.attr('type', 'text');
+		        $(this).html('<i class="fas fa-eye-slash"></i>');
+		    } else {
+		        passwordField.attr('type', 'password');
+		        $(this).html('<i class="fas fa-eye"></i>');
+		    }
+		});
+	});
+</script>
 </html>
