@@ -11,7 +11,7 @@
 <body onload="startTime()">
 <div class="row top">
 	<div class="col col-md-2 p-2 ml-3">
-		<img src="img/logo.png" class="img-fluid">
+		<img src="img/logo.png" class="img-fluid logo">
 	</div>
 	<div class="col col-md-3">
 	</div>
@@ -38,3 +38,52 @@
 		<div id="nome">Boa tarde, Administrador do Sistema </div>
 	</div>
 </div>
+<ul class="nav nav-tabs">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CADASTRAR</a>
+    <div class="dropdown-menu">
+      	<a href="#" class="dropdown-item">Pedidos</a>
+		<a href="#" class="dropdown-item">Fornecedor</a>
+		<a href="#" class="dropdown-item">Lojas</a>
+		<a href="#" class="dropdown-item">Produtos</a>
+		<a href="#" class="dropdown-item">Cotas</a>
+		<a href="#" class="dropdown-item">Condições de Pagamento</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ADMINISTRAR</a>
+    <div class="dropdown-menu">
+      	<a href="#" class="dropdown-item">Pedidos</a>
+		<a href="#" class="dropdown-item">Fornecedor</a>
+		<a href="#" class="dropdown-item">Lojas</a>
+		<a href="#" class="dropdown-item">Produtos</a>
+		<a href="#" class="dropdown-item">Cotas</a>
+		<a href="#" class="dropdown-item">Condições de Pagamento</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">RELATÓRIOS</a>
+    <div class="dropdown-menu">
+      	<a href="#" class="dropdown-item">Pedidos</a>
+		<a href="#" class="dropdown-item">Fornecedor</a>
+		<a href="#" class="dropdown-item">Lojas</a>
+		<a href="#" class="dropdown-item">Produtos</a>
+		<a href="#" class="dropdown-item">Cotas</a>
+		<a href="#" class="dropdown-item">Condições de Pagamento</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">USUÁRIOS</a>
+    <div class="dropdown-menu">
+      	<a href="#" class="dropdown-item">Dados</a>
+		<a href="#" class="dropdown-item">Alterar Senha</a>
+		<a href="#" class="dropdown-item">Cadastrar Usuário</a>
+		<a href="#" class="dropdown-item">Usuários Cadastrados</a>
+		<a href="#" class="dropdown-item">Fazer BKP do Banco de Dados</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Logoff</a>
+  </li>
+</ul>
+

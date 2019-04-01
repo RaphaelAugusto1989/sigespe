@@ -17,7 +17,7 @@ body {
 	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 }
 .top {
-	height: 60px;
+	height: 65px;
 	color: #CB0003;
 	background-color: #434343;
 	background: -webkit-linear-gradient(#434343, #686868);
@@ -26,6 +26,10 @@ body {
   	background: -ms-linear-gradient(#434343, #686868);
   	background: linear-gradient(#434343, #686868);
   	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.logo {
+	max-width: 200px;
 }
 
 #nome {
